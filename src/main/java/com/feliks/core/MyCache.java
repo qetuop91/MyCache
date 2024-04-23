@@ -3,6 +3,11 @@ package com.feliks.core;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 继承LinkedHashMap
+ * @param <K>
+ * @param <V>
+ */
 public class MyCache<K, V> extends LinkedHashMap<K, V> {
     private int size;
     private Object lock;
@@ -31,7 +36,6 @@ public class MyCache<K, V> extends LinkedHashMap<K, V> {
     /**
      * 重写LinkedHashMap的removeEldestEntry方法
      * 在Put的时候判断如果为true就会删除最老的
-     *
      * @param eldest
      */
     @Override
@@ -42,7 +46,6 @@ public class MyCache<K, V> extends LinkedHashMap<K, V> {
     /**
      * 当其他线程试图访问被synchronized修饰的代码块时会被阻塞，
      * 只有当前拿到锁的进程可以访问代码块
-     *
      * @param key
      */
     public Object getValue(K key) {
